@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "OOd1CXyR7A5uUzohsoO3VsSrFZgvvlB3wMyCBDvSbuU=",
+  "Source": "Fuel_Tracking_Web_API",
+  "BasePath": "_content/Fuel_Tracking_Web_API",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

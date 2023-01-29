@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\Fuel_Tracking_Web_API.props" />
+</Project>
