@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\Fuelling_Tracking_WEB_API.props" />
+</Project>

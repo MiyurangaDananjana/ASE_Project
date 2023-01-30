@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\buildMultiTargeting\Fuel_Tracking_Web_API.props" />
-</Project>
