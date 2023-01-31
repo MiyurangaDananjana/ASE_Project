@@ -1,0 +1,47 @@
+<body>
+  <mat-toolbar color="primary" fxLayout="row" fxLayoutAlign="space-between center">
+    <span>
+      <button class="btn-backgroun-color" mat-button routerLink="/">Admin User</button>
+    </span>
+    <span>
+      <button class="btn-backgroun-color" mat-button routerLink="/">Fueling Station</button>
+    </span>
+    <div fxLayout="row" fxShow="false" fxShow.gt-sm>
+    </div>
+    
+  </mat-toolbar>
+
+  <mat-menu x-position="before" #menu="matMenu">
+    <button mat-menu-item routerLink="/">
+      <mat-icon>home</mat-icon>
+      Home
+    </button>
+    <button mat-menu-item routerLink="/game">
+      <mat-icon>gamepad</mat-icon>
+      Play
+    </button>
+    <button mat-menu-item routerLink="/login" >
+      <mat-icon>power_settings_new</mat-icon>
+      Login
+    </button>
+    <button mat-menu-item >
+      <mat-icon>exit_to_app</mat-icon>
+      Logout
+    </button>
+  </mat-menu>
+
+  <mat-card  class="frm-backgroun">
+    <mat-card-content >
+      <form #loginForm="ngForm" >
+        <img src="../../../../assets/img/logo/fuel_home_logo .png" alt="">
+        <h4>FuelIn is a public company based in Sri Lanka that specializes in the distribution and management of fuel supplies throughout the island.</h4>
+        
+        <button mat-raised-button color="primary" [disabled]="!loginForm.form.valid" routerLink="log-in">Login</button>
+        
+        <button mat-raised-button color="primary" [disabled]="!loginForm.form.valid" routerLink="Sing-up">Sing Up</button>
+      </form>
+    </mat-card-content>
+
+  </mat-card>
+</body>
+

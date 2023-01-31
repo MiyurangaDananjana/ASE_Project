@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap');
+
+h4{
+  font-family: 'Raleway', sans-serif;
+}
+mat-card {
+    max-width: 400px;
+    margin: 2em auto;
+    text-align: center;
+  }
+  body {
+    background-color: rgb(24, 47, 63);
+  }
+  
+  mat-form-field {
+    display: block;
+  }
+  button{
+    margin-left: 1rem;
+  }
+  .frm-backgroun{
+    background-color: rgb(90, 186, 186);
+  }
+  .btn-backgroun-color{
+    background-color: rgb(73, 34, 108);
+  }
