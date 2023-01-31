@@ -9,6 +9,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import { OtpLoginPageComponent } from './Components/pages/otp-login-page/otp-login-page.component';
 import { CustomerDashbordComponent } from './Components/Components/customer-dashbord/customer-dashbord.component';
+import { FormsModule,ReactiveFormsModule }   from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 
 
@@ -24,12 +26,16 @@ import { CustomerDashbordComponent } from './Components/Components/customer-dash
     CustomerDashbordComponent,
     
     
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatFormFieldModule
   ],
   providers: [],
   bootstrap: [AppComponent]
