@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup, FormControl, Validator, Validators} from '@angular/forms'
+import { AuthService } from 'src/app/Service/auth.service';
 
-interface Food {
-  value: string;
-  viewValue: string;
-}
+
 
 @Component({
   selector: 'app-sign-up',
@@ -13,8 +11,15 @@ interface Food {
 })
 export class SignUpComponent implements OnInit {
 
+
+
+
   SingInForm : FormGroup;
-  constructor() { }
+  constructor(private loginAuth: AuthService) { }
+
+  public VehicalType:any =[];
+  public FuelStation:any =[];
+  selectValue:any;
 
 
 
@@ -26,16 +31,25 @@ export class SignUpComponent implements OnInit {
       v_r_number : new FormControl('',[Validators.required,Validators.minLength(6)]),
       v_c_number: new FormControl('',[Validators.required,Validators.minLength(6)])
     })
+
+   this.loginAuth.Get_Vehical_Type().subscribe((res)=> {
+    this.VehicalType = res;
+   });
+
+
+   this.loginAuth.Get_Fuel_Station().subscribe((res)=> {
+    this.FuelStation = res;
+    console.log(this.FuelStation);
+   });
     
   }
-  foods: Food[] = [
-    {value: 'steak-0', viewValue: 'Steak'},
-    {value: 'pizza-1', viewValue: 'Pizza'},
-    {value: 'tacos-2', viewValue: 'Tacos'},
-  ];
+
+  changeClient(value:any) {
+    console.log(value);
+}
 
   Submint(){
-    console.log(this.SingInForm);
+    console.log(this.selectValue);
   }
 
 }

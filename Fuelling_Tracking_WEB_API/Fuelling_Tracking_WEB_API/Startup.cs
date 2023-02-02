@@ -1,7 +1,11 @@
+
+
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -13,6 +17,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 
 namespace Fuelling_Tracking_WEB_API
 {
@@ -28,6 +33,18 @@ namespace Fuelling_Tracking_WEB_API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
+            //services.AddDbContext<FuelDbContext>(options =>
+            //options.UseSqlServer(Configuration.GetConnectionString("DevConnection")));
+
+            services.AddCors(option=>
+            {
+                option.AddPolicy(name:"AllowOrigin",builder =>
+                {
+                    builder.WithOrigins("http://localhost:4200").AllowAnyHeader().AllowAnyMethod();
+                });
+            });
+
 
             services.AddAuthentication("JWTAuth")
                  .AddJwtBearer("JWTAuth", options =>
@@ -69,7 +86,7 @@ namespace Fuelling_Tracking_WEB_API
             app.UseHttpsRedirection();
 
             app.UseRouting();
-
+            app.UseCors("AllowOrigin");
             app.UseAuthentication();
             app.UseAuthorization();
 

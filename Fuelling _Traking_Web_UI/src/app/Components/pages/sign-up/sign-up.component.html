@@ -3,17 +3,17 @@
       <div fxLayout="row" fxShow="false" fxShow.gt-sm>
       </div>  
     </mat-toolbar>
+
     
   
     <mat-card  class="frm-backgroun">
       <mat-card-content >
-
         <!-- sing in form -->
         <form  (ngSubmit)="Submint()" name="SingInForm" [formGroup]="SingInForm">
+          
           <div class="space">
             <a class="titel-font-size">Vehicle Details</a>
-          </div>
-          
+          </div>       
           <mat-form-field>
             <input matInput type="text" formControlName="nic_number" placeholder="NIC Number"  name="nic" required >
             <mat-error >
@@ -43,23 +43,24 @@
           </mat-form-field>
 
           <mat-form-field appearance="fill">
-            <mat-label>Favorite food</mat-label>
-            <mat-select>
-              <mat-option *ngFor="let food of foods" [value]="food.value">
-                {{food.viewValue}}
+            <mat-label>Vehical Type</mat-label>
+            <mat-select >
+              <mat-option *ngFor="let VehicalType of VehicalType" [value]="VehicalType.vehicalType_Id">
+                {{VehicalType.vehical_Name}}
               </mat-option>
             </mat-select>
           </mat-form-field>
           
 
           <mat-form-field appearance="fill">
-            <mat-label>Favorite food</mat-label>
-            <mat-select>
-              <mat-option *ngFor="let food of foods" [value]="food.value">
-                {{food.viewValue}}
+            <mat-label>Fuel Station</mat-label>
+            <mat-select  #clientValue  (selectionChange)="changeClient($event.value)">
+              <mat-option *ngFor="let fuelStation of FuelStation" [value]="fuelStation.id">
+                {{fuelStation.fuelStationCode}}
               </mat-option>
             </mat-select>
           </mat-form-field>
+
           
 
           
