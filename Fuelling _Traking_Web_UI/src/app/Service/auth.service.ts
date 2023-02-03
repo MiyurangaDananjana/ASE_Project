@@ -20,4 +20,21 @@ export class AuthService {
   Get_Fuel_Station(){
     return this.http.get(this.baseServerURL+'NewCustomer/Fuel-Station',{responseType:'json'})
   }
+
+  Save_Customer_Req(customeDetail:Array<String>){
+    return this.http.post(this.baseServerURL+'NewCustomer/Req-customer',{
+      NicNumber:customeDetail[0],
+      PhoneNumber:customeDetail[1],
+      VehicalRegNumber:customeDetail[2],
+      VehicalChassisNumber:customeDetail[3],
+      FuelId:customeDetail[4],
+      FuelStation:customeDetail[5]
+    }, {responseType:'text'});
+  }
+
+  phoneNumberValidation(phoneNumebr:Array<String>){
+    return this.http.post(this.baseServerURL+'NewCustomer/sent-otp',{
+      PhoneNumber:phoneNumebr[0]
+    },{responseType:'text'})
+  }
 }

@@ -126,21 +126,27 @@ public partial class FuelingDbContext : DbContext
                 .HasMaxLength(50)
                 .IsUnicode(false)
                 .HasColumnName("NIC_NUMBER");
+
             entity.Property(e => e.OtpCode).HasColumnName("OTP_CODE");
             entity.Property(e => e.OtpSendDate)
                 .HasColumnType("datetime")
                 .HasColumnName("OTP_SEND_DATE");
+
             entity.Property(e => e.PhoneNumber)
                 .IsRequired()
-                .HasMaxLength(10)
-                .IsFixedLength()
+                .HasMaxLength(12)
+                .IsUnicode(false)
                 .HasColumnName("PHONE_NUMBER");
+
             entity.Property(e => e.States).HasColumnName("STATES");
+
+
             entity.Property(e => e.VehicalChassisNumber)
                 .IsRequired()
                 .HasMaxLength(100)
                 .IsUnicode(false)
                 .HasColumnName("VEHICAL_CHASSIS_NUMBER");
+
             entity.Property(e => e.VehicalRegNumber)
                 .IsRequired()
                 .HasMaxLength(100)

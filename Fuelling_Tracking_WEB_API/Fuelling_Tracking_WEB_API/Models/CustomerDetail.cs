@@ -19,7 +19,7 @@ public partial class CustomerDetail
 
     public DateTime? OtpSendDate { get; set; }
 
-    public int FuelId { get; set; }
+    public int FuelId { get; set; } // vehicle id
 
     public int FuelStation { get; set; }
 

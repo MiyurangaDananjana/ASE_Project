@@ -48,6 +48,11 @@ import { PagesLoginComponent } from './pages/pages-login/pages-login.component';
 import { PagesError404Component } from './pages/pages-error404/pages-error404.component';
 import { PagesBlankComponent } from './pages/pages-blank/pages-blank.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AuthService } from './Service/auth.service';
+import { NgToastModule } from 'ng-angular-popup';
+import { CustomerDashboardComponent } from './pages/dashboard/customer-dashboard/customer-dashboard.component';
+import { ManagerDashboardComponent } from './pages/dashboard/manager-dashboard/manager-dashboard.component';
+import { AdminDashboardComponent } from './pages/dashboard/admin-dashboard/admin-dashboard.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -91,6 +96,9 @@ import { HttpClientModule } from '@angular/common/http';
     PagesLoginComponent,
     PagesError404Component,
     PagesBlankComponent,
+    CustomerDashboardComponent,
+    ManagerDashboardComponent,
+    AdminDashboardComponent,
 
   ],
   imports: [
@@ -101,10 +109,11 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     ReactiveFormsModule,
     MatFormFieldModule,
-    HttpClientModule
+    HttpClientModule,
+    NgToastModule
 
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

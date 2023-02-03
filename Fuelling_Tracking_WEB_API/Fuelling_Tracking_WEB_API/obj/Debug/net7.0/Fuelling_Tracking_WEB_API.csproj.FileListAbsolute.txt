@@ -276,3 +276,4 @@ F:\ASE_Project\Fuelling_Tracking_WEB_API\Fuelling_Tracking_WEB_API\bin\Debug\net
 F:\ASE_Project\Fuelling_Tracking_WEB_API\Fuelling_Tracking_WEB_API\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
 F:\ASE_Project\Fuelling_Tracking_WEB_API\Fuelling_Tracking_WEB_API\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 F:\ASE_Project\Fuelling_Tracking_WEB_API\Fuelling_Tracking_WEB_API\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+F:\ASE_Project\Fuelling_Tracking_WEB_API\Fuelling_Tracking_WEB_API\bin\Debug\net7.0\Twilio.dll

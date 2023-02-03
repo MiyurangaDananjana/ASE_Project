@@ -12,7 +12,12 @@ namespace Fuelling_Tracking_WEB_API.Controllers
     [ApiController]
     public class NewCustomerController : ControllerBase
     {
-       
+        enum CustomerStates
+        {
+            NoneActive,
+            ManagerApproved,
+        }
+
 
         [HttpGet]
         [Route("GetVehical")]
@@ -32,7 +37,7 @@ namespace Fuelling_Tracking_WEB_API.Controllers
 
         [HttpGet]
         [Route("Fuel-Station")]
-        public IActionResult Fuel_Station() 
+        public IActionResult Fuel_Station()
         {
             try
             {
@@ -51,13 +56,14 @@ namespace Fuelling_Tracking_WEB_API.Controllers
         [Route("Req-customer")]
         public IActionResult CustomerSave(CustomerDetail customerDetail)
         {
-            FuelingDbContext db = new FuelingDbContext();
-            var chechRegNumber = db.CustomerDetails.Where(x => x.VehicalRegNumber == customerDetail.VehicalRegNumber).FirstOrDefault();
 
-            if(chechRegNumber != null)
+            FuelingDbContext db = new FuelingDbContext();
+            var chechRegNumber = db.CustomerDetails.Where(x => x.VehicalRegNumber == customerDetail.VehicalRegNumber && x.PhoneNumber == customerDetail.PhoneNumber).FirstOrDefault();
+
+            if (chechRegNumber != null)
             {
 
-                return NotFound("Already Registered");
+                return Ok("415");
 
             }
             else
@@ -70,20 +76,59 @@ namespace Fuelling_Tracking_WEB_API.Controllers
                 dto.VehicalChassisNumber = customerDetail.VehicalChassisNumber;
                 dto.FuelId = customerDetail.FuelId;
                 dto.FuelStation = customerDetail.FuelStation;
-                dto.States = Convert.ToInt32(1);
+                dto.States = Convert.ToInt32(0); // Account is non activated states
                 dto.ActiveDate = DateTime.Now;
                 VehicalTypeBLL.Save_Customer(dto);
                 return Ok("201");
-               
+
             }
-            
+
         }
 
-        [HttpGet]
-        [Route("get")]
-        public IActionResult Get()
+        [HttpPost]
+        [Route("sent-otp")]
+        public IActionResult customerLoginCheck(CustomerDetail customerDetail)
         {
-            return Ok("Hello World");
+            FuelingDbContext db = new FuelingDbContext();
+
+            int customerStatus = (int)CustomerStates.ManagerApproved;
+
+
+            var chackPhoneNumber = db.CustomerDetails.Where(x => x.PhoneNumber == customerDetail.PhoneNumber && x.States == customerStatus).FirstOrDefault();
+
+            if (chackPhoneNumber != null)
+            {
+                VehicalTypeBLL otpSend = new VehicalTypeBLL();
+                int _rendomOtpCode = GenerateRandomNo();
+                string cusMassage = $"Fuel Pass: Ontime validation (OTP) {_rendomOtpCode} Expire in 5 minutes"; // Message Template 
+                //otpSend.messageSend(chackPhoneNumber.PhoneNumber, cusMassage); 
+
+
+
+                //Update Otp send date and time
+                CustomerDetail cussetail = new CustomerDetail();
+                cussetail.PhoneNumber = customerDetail.PhoneNumber;
+                cussetail.OtpCode = _rendomOtpCode;
+                cussetail.OtpSendDate = DateTime.Now;
+                VehicalTypeBLL.UpdateOtpSendDateTime(cussetail);
+                return Ok("201");
+            }
+            else
+            {
+                return Ok("NotReg");
+               
+
+            }
+
+        }
+
+        //Generate The Random OTP Code 
+        public static int GenerateRandomNo()
+        {
+            int _min = 1000;
+            int _max = 9999;
+            Random _rdm = new Random();
+            return _rdm.Next(_min, _max);
         }
     }
 }

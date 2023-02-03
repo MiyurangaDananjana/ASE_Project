@@ -6,41 +6,23 @@
       
     </mat-toolbar>
   
-    <mat-menu x-position="before" #menu="matMenu">
-      <button mat-menu-item routerLink="/">
-        <mat-icon>home</mat-icon>
-        Home
-      </button>
-      <button mat-menu-item routerLink="/game">
-        <mat-icon>gamepad</mat-icon>
-        Play
-      </button>
-      <button mat-menu-item routerLink="/login" >
-        <mat-icon>power_settings_new</mat-icon>
-        Login
-      </button>
-      <button mat-menu-item >
-        <mat-icon>exit_to_app</mat-icon>
-        Logout
-      </button>
-    </mat-menu>
   
     <mat-card  class="frm-backgroun">
 
 
       <mat-card-content >
-        <form #loginForm="ngForm" >
+        <form (ngSubmit)="Submint()" name="OTPSendForm" [formGroup]="OtpForm" >
           <div class="space">
-            <a class="titel-font-size">Login</a>
+            <a class="titel-font-size">Sent OTP</a>
           </div>
           
           <mat-form-field>
-            <input matInput type="text" placeholder="Mobil Number"  name="password" required>
+            <input matInput type="text" formControlName="PhoneNumber" placeholder="Phone Number (+940700000000)"  name="phone_number" required>
             <mat-error>
-              Please provide a valid password
+              Please provide a valid phone number
             </mat-error>
           </mat-form-field>
-          <button mat-raised-button color="primary" [disabled]="!loginForm.form.valid" routerLink="/otp-login">Sent OTP</button>
+          <button mat-raised-button color="primary" type="submit" [disabled]="!OtpForm.valid" >Sent OTP</button>
 
         </form>
       </mat-card-content>

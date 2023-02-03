@@ -26,7 +26,6 @@ namespace Fuelling_Tracking_WEB_API.DAL
                 vehical_detail.Add(dto);
             }
             return vehical_detail;
-
         }
         internal static List<FuelStation> Get_FuelStation_Detail()
         {
@@ -49,12 +48,23 @@ namespace Fuelling_Tracking_WEB_API.DAL
             }
             return _station;
         }
-
         internal static void Save_Customer(CustomerDetail dto)
         {
             FuelingDbContext db = new FuelingDbContext();
             db.CustomerDetails.Add(dto);
             db.SaveChanges();
+
+        }
+
+
+        internal static void UpdateOtpSendDateTime(CustomerDetail cussetail)
+        {
+            FuelingDbContext db = new FuelingDbContext();
+            CustomerDetail PhoneNumber = db.CustomerDetails.FirstOrDefault(x=>x.PhoneNumber == cussetail.PhoneNumber);
+            PhoneNumber.OtpCode= cussetail.OtpCode;
+            PhoneNumber.OtpSendDate = cussetail.OtpSendDate;
+            db.SaveChanges();
+
 
         }
     }

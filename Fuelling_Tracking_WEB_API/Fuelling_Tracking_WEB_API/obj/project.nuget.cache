@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "khu3043JZIF8TOiLqz0rZ3fBajlTXxUqNEAWwjayjB3sjnAerFyABZXnBaadm/puJ5ZaQoCp5a/0UNhlYEzH7Q==",
+  "dgSpecHash": "NMK4w6a99pGOkohRJ+oqJE+mQkKrqYFK4Z6HttaZzWSrvD7eEJp06kyJIdhBpXzUi92Bz7E/NXMI9vXzkR3oLA==",
   "success": true,
   "projectFilePath": "F:\\ASE_Project\\Fuelling_Tracking_WEB_API\\Fuelling_Tracking_WEB_API\\Fuelling_Tracking_WEB_API.csproj",
   "expectedPackageFiles": [
@@ -114,6 +114,8 @@
     "C:\\Users\\Miyuranga\\.nuget\\packages\\system.collections\\4.3.0\\system.collections.4.3.0.nupkg.sha512",
     "C:\\Users\\Miyuranga\\.nuget\\packages\\system.collections.concurrent\\4.3.0\\system.collections.concurrent.4.3.0.nupkg.sha512",
     "C:\\Users\\Miyuranga\\.nuget\\packages\\system.collections.immutable\\6.0.0\\system.collections.immutable.6.0.0.nupkg.sha512",
+    "C:\\Users\\Miyuranga\\.nuget\\packages\\system.collections.nongeneric\\4.3.0\\system.collections.nongeneric.4.3.0.nupkg.sha512",
+    "C:\\Users\\Miyuranga\\.nuget\\packages\\system.collections.specialized\\4.3.0\\system.collections.specialized.4.3.0.nupkg.sha512",
     "C:\\Users\\Miyuranga\\.nuget\\packages\\system.composition\\6.0.0\\system.composition.6.0.0.nupkg.sha512",
     "C:\\Users\\Miyuranga\\.nuget\\packages\\system.composition.attributedmodel\\6.0.0\\system.composition.attributedmodel.6.0.0.nupkg.sha512",
     "C:\\Users\\Miyuranga\\.nuget\\packages\\system.composition.convention\\6.0.0\\system.composition.convention.6.0.0.nupkg.sha512",
@@ -192,7 +194,8 @@
     "C:\\Users\\Miyuranga\\.nuget\\packages\\system.threading.timer\\4.3.0\\system.threading.timer.4.3.0.nupkg.sha512",
     "C:\\Users\\Miyuranga\\.nuget\\packages\\system.windows.extensions\\6.0.0\\system.windows.extensions.6.0.0.nupkg.sha512",
     "C:\\Users\\Miyuranga\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
-    "C:\\Users\\Miyuranga\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512"
+    "C:\\Users\\Miyuranga\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
+    "C:\\Users\\Miyuranga\\.nuget\\packages\\twilio\\6.2.2\\twilio.6.2.2.nupkg.sha512"
   ],
   "logs": []
 }
