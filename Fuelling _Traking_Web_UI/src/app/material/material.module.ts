@@ -13,6 +13,11 @@ import { MatTableModule } from '@angular/material/table';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatSelectModule } from '@angular/material/select';
 import { MatOptionModule } from '@angular/material/core';
+import {MatGridListModule} from '@angular/material/grid-list';
+
+// import { MatSidenavModule, MatDividerModule ,MatPaginatorModule } from '@angular/material';
+
+
 
 const MaterialComponents=[
   MatButtonModule
@@ -33,6 +38,8 @@ const MaterialComponents=[
   MatSlideToggleModule,
   MatSelectModule,
   MatOptionModule,
+  MatGridListModule
+ 
 ],
   exports:[MaterialComponents,
     FormsModule,
@@ -45,6 +52,8 @@ const MaterialComponents=[
     MatTableModule,
     MatSlideToggleModule,
     MatSelectModule,
-    MatOptionModule]
+    MatOptionModule,
+    MatGridListModule
+  ]
 })
 export class MaterialModule { }

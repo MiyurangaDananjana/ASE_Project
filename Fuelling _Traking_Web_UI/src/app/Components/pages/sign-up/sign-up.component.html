@@ -1,70 +1,62 @@
 <body>
-    <mat-toolbar color="primary" fxLayout="row" fxLayoutAlign="space-between center">
-      <div fxLayout="row" fxShow="false" fxShow.gt-sm>
-      </div>  
-    </mat-toolbar>
+  <mat-toolbar color="primary" fxLayout="row" fxLayoutAlign="space-between center">
+    <div fxLayout="row" fxShow="false" fxShow.gt-sm></div>
+  </mat-toolbar>
 
-    
-  
-    <mat-card  class="frm-backgroun">
-      <mat-card-content >
-        <!-- sing in form -->
-        <form  (ngSubmit)="Submint()" name="SingInForm" [formGroup]="SingInForm">
-          
-          <div class="space">
-            <a class="titel-font-size">Vehicle Details</a>
-          </div>       
-          <mat-form-field>
-            <input matInput type="text" formControlName="NicNumber" placeholder="NIC Number"  name="nic" required >
-            <mat-error >
-              Please provide a valid nic number
-            </mat-error>
-          </mat-form-field>
-
-          <mat-form-field>
-            <input matInput type="text" formControlName="PhoneNumber" placeholder="Phone Number (+940700000000)"  name="phone_number" required>
-            <mat-error>
-              Please provide a valid phone number
-            </mat-error>
-          </mat-form-field>
-
-          <mat-form-field>
-            <input matInput type="text" formControlName="VehicalRegNumber" placeholder="Vehicle Registration Number (BRI-1212)" name="v_r_number" required>
-            <mat-error>
-              Please provide a valid vehicle registered number
-            </mat-error>
-          </mat-form-field>
-
-          <mat-form-field>
-            <input matInput type="text" formControlName="VehicalChassisNumber" placeholder="Vehicle Chassis Number"  name="v_c_number" required>
-            <mat-error>
-              Please provide a valid vehical chassis number
-            </mat-error>
-          </mat-form-field>
-
-          <mat-form-field appearance="fill">
-            <mat-label>Vehical Type</mat-label>
-            <mat-select formControlName="FuelId" name="FuelId" #VahicalTypeIdValue (selectionChange)="VahicleTypeId($event.value)" required>
-              <mat-option *ngFor="let VehicalType of VehicalType" [value]="VehicalType.vehicalType_Id">
-                {{VehicalType.vehical_Name}}
-              </mat-option>
-            </mat-select>
-          </mat-form-field>
-          
-          <mat-form-field appearance="fill">
-            <mat-label>Fuel Station</mat-label>
-            <mat-select formControlName="FuelStation" name="FuelStation"   #FuelStationIdValue  (selectionChange)="FuelStationId($event.value)" required>
-              <mat-option *ngFor="let fuelStation of FuelStation" [value]="fuelStation.id">
-                {{fuelStation.fuelStationCode}}
-              </mat-option>
-            </mat-select>
-          </mat-form-field>
-
-          <button mat-raised-button color="primary" type="submit" [disabled]="!SingInForm.valid" >Sing Up</button>
-        </form>
-       
-      </mat-card-content>
-  
-    </mat-card>
-  </body>
-  
+  <mat-card class="frm-backgroun">
+    <mat-card-content>
+      <!-- sing in form -->
+      <form (ngSubmit)="Submint()" name="SingInForm" [formGroup]="SingInForm">
+        <div class="space">
+          <a class="titel-font-size">Vehicle Details</a>
+        </div>
+        <mat-form-field> 
+          <input matInput type="text" formControlName="NicNumber" placeholder="NIC Number" name="nic" required>
+          <mat-error>
+            Please provide a valid nic number
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput type="text" formControlName="PhoneNumber" placeholder="Phone Number (+940700000000)"
+            name="phone_number" required>
+          <mat-error>
+            Please provide a valid phone number
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput type="text" formControlName="VehicalRegNumber"
+            placeholder="Vehicle Registration Number (BRI-1212)" name="v_r_number" required>
+          <mat-error>
+            Please provide a valid vehicle registered number
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput type="text" formControlName="VehicalChassisNumber" placeholder="Vehicle Chassis Number"
+            name="v_c_number" required>
+          <mat-error>
+            Please provide a valid vehical chassis number
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Vehical Type</mat-label>
+          <mat-select formControlName="FuelId" name="FuelId" #VahicalTypeIdValue
+            (selectionChange)="VahicleTypeId($event.value)" required>
+            <mat-option *ngFor="let VehicalType of VehicalType" [value]="VehicalType.vehicalType_Id">
+              {{VehicalType.vehical_Name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Fuel Station</mat-label>
+          <mat-select formControlName="FuelStation" name="FuelStation" #FuelStationIdValue
+            (selectionChange)="FuelStationId($event.value)" required>
+            <mat-option *ngFor="let fuelStation of FuelStation" [value]="fuelStation.id">
+              {{fuelStation.fuelStationCode}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <button mat-raised-button color="primary" type="submit" [disabled]="!SingInForm.valid">Sing Up</button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</body>

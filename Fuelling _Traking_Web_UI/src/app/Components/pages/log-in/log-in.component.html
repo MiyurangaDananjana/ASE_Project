@@ -1,32 +1,23 @@
 <body>
-    <mat-toolbar color="primary" fxLayout="row" fxLayoutAlign="space-between center">
-     
-      <div fxLayout="row" fxShow="false" fxShow.gt-sm>
-      </div>
-      
-    </mat-toolbar>
-  
-  
-    <mat-card  class="frm-backgroun">
-
-
-      <mat-card-content >
-        <form (ngSubmit)="Submint()" name="OTPSendForm" [formGroup]="OtpForm" >
-          <div class="space">
-            <a class="titel-font-size">Sent OTP</a>
-          </div>
-          
-          <mat-form-field>
-            <input matInput type="text" formControlName="PhoneNumber" placeholder="Phone Number (+940700000000)"  name="phone_number" required>
-            <mat-error>
-              Please provide a valid phone number
-            </mat-error>
-          </mat-form-field>
-          <button mat-raised-button color="primary" type="submit" [disabled]="!OtpForm.valid" >Sent OTP</button>
-
-        </form>
-      </mat-card-content>
-  
-    </mat-card>
-  </body>
-  
+  <mat-toolbar color="primary" fxLayout="row" fxLayoutAlign="space-between center">
+    <div fxLayout="row" fxShow="false" fxShow.gt-sm>
+    </div>
+  </mat-toolbar>
+  <mat-card class="frm-backgroun">
+    <mat-card-content>
+      <form (ngSubmit)="Submint()" name="OTPSendForm" [formGroup]="OtpForm">
+        <div class="space">
+          <a class="titel-font-size">Sent OTP</a>
+        </div>
+        <mat-form-field>
+          <input matInput type="text" formControlName="PhoneNumber" placeholder="Phone Number (+940700000000)"
+            name="phone_number" required>
+          <mat-error>
+            Please provide a valid phone number
+          </mat-error>
+        </mat-form-field>
+        <button mat-raised-button color="primary" type="submit" [disabled]="!OtpForm.valid">Sent OTP</button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</body>

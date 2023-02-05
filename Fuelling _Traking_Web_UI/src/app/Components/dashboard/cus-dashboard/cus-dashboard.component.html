@@ -1,0 +1,36 @@
+<div class="grid-container">
+  <h1 class="mat-h1">Dashboard</h1>
+  <mat-grid-list cols="3" rowHeight="370px">
+    
+    <mat-grid-tile class="cols:2" >
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title>
+            <h3>Fuel Stock level</h3>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="dashboard-card-content">
+          <div class="chart-container" style="position: relative; height:40vh; width:15vw">
+            <canvas id="piechart"></canvas>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile class="cols:2">
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title>
+            <h3>QR Code</h3>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="dashboard-card-content">
+          <qrcode elementType="img" (qrCodeURL)="onCodeChange($event)" [width]="250" [qrdata]="myAngularQRcode"
+            [errorCorrectionLevel]="'H'"></qrcode>
+          <a [href]="url" download="OneTime_QR_Code">Download QR code</a>
+        </mat-card-content>
+
+      </mat-card>
+    </mat-grid-tile>
+
+  </mat-grid-list>
+</div>

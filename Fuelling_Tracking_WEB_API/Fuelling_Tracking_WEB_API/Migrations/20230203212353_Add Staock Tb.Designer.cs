@@ -4,6 +4,7 @@ using Fuelling_Tracking_WEB_API.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FuellingTrackingWEBAPI.Migrations
 {
     [DbContext(typeof(FuelingDbContext))]
-    partial class FuelingDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230203212353_Add Staock Tb")]
+    partial class AddStaockTb
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -65,18 +68,9 @@ namespace FuellingTrackingWEBAPI.Migrations
                         .HasColumnType("varchar(12)")
                         .HasColumnName("PHONE_NUMBER");
 
-                    b.Property<string>("QrCode")
-                        .HasMaxLength(10)
-                        .HasColumnType("nvarchar(10)")
-                        .HasColumnName("QR_CODE");
-
                     b.Property<int?>("States")
                         .HasColumnType("int")
                         .HasColumnName("STATES");
-
-                    b.Property<int?>("UseQuantity")
-                        .HasColumnType("int")
-                        .HasColumnName("USE_QUANTITY");
 
                     b.Property<string>("VehicalChassisNumber")
                         .IsRequired()
@@ -91,10 +85,6 @@ namespace FuellingTrackingWEBAPI.Migrations
                         .IsUnicode(false)
                         .HasColumnType("varchar(100)")
                         .HasColumnName("VEHICAL_REG_NUMBER");
-
-                    b.Property<int?>("WeeklyQuantity")
-                        .HasColumnType("int")
-                        .HasColumnName("WEEKLY_QUANTITY");
 
                     b.HasKey("Id");
 

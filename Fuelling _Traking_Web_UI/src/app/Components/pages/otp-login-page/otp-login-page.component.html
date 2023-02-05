@@ -1,37 +1,30 @@
 <body>
-    <mat-toolbar color="primary" fxLayout="row" fxLayoutAlign="space-between center">
-     
-      <div fxLayout="row" fxShow="false" fxShow.gt-sm>
-      </div>
-      
-    </mat-toolbar>
-
-    <mat-card  class="frm-backgroun">
-      <mat-card-content >
-        <form (ngSubmit)="Submint()" name="OTPSendForm" [formGroup]="LoginForm" >
-          <div class="space">
-            <a class="titel-font-size">Login</a>
-          </div>
-
-          <mat-form-field>
-            <input matInput type="text" formControlName="PhoneNumber" placeholder="Phone Number (+940700000000)"  name="phone_number" required>
-            <mat-error>
-              Please provide a valid phone number
-            </mat-error>
-          </mat-form-field>
-
-          <mat-form-field>
-            <input matInput type="text" placeholder="Enter the 6 digit OTP number sent to mobile"  name="password" required>
-            <mat-error>
-              Please provide a valid password
-            </mat-error>
-          </mat-form-field>
-          
-          <button mat-raised-button type="submit" color="primary" [disabled]="!LoginForm.valid" routerLink="/customer-dashbord">Login</button>
-
-        </form>
-      </mat-card-content>
-  
-    </mat-card>
-  </body>
-  
+  <mat-toolbar color="primary" fxLayout="row" fxLayoutAlign="space-between center">
+    <div fxLayout="row" fxShow="false" fxShow.gt-sm>
+    </div>
+  </mat-toolbar>
+  <mat-card class="frm-backgroun">
+    <mat-card-content>
+      <form (ngSubmit)="Submint()" name="OTPSendForm" [formGroup]="LoginForm">
+        <div class="space">
+          <a class="titel-font-size">Login</a>
+        </div>
+        <mat-form-field>
+          <input matInput type="text" formControlName="PhoneNumber" placeholder="Phone Number (+940700000000)"
+            name="phone_number" required>
+          <mat-error>
+            Please provide a valid phone number
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput type="text" formControlName="OtpCode" placeholder="OTP Code" name="OtpCode" required>
+          <mat-error>
+            Please provide a valid phone number
+          </mat-error>
+        </mat-form-field>
+        <button mat-raised-button type="submit" color="primary" [disabled]="!LoginForm.valid"
+          routerLink="/customer-dashbord">Login</button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</body>

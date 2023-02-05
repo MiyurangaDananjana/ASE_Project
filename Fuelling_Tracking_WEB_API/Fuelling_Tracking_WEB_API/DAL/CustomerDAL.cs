@@ -27,6 +27,32 @@ namespace Fuelling_Tracking_WEB_API.DAL
             }
             return vehical_detail;
         }
+
+        internal static List<FuelStock> chackStock(int fuelStationId, int fuelId)
+        {
+            FuelingDbContext db = new FuelingDbContext();
+            List<FuelStock> _fs = new List<FuelStock>();
+            var list = from stocktb in db.FuelStationStocks
+                       where stocktb.FSId == fuelStationId && stocktb.FTId == fuelId
+                       select new
+                       {
+                           
+                           availableStock = stocktb.AvailableStock,
+                           finished = stocktb.MainStock - stocktb.AvailableStock
+                       };
+            foreach (var item in list) 
+            {
+                FuelStock dto = new FuelStock();
+
+                dto.available = item.availableStock;
+                dto.finished = item.finished;
+               
+                _fs.Add(dto);
+               
+            }
+            return _fs;
+        }
+
         internal static List<FuelStation> Get_FuelStation_Detail()
         {
             FuelingDbContext db = new FuelingDbContext();

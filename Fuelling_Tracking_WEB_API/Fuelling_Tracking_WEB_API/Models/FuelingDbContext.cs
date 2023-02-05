@@ -25,6 +25,8 @@ public partial class FuelingDbContext : DbContext
 
     public virtual DbSet<CustomerDetail> CustomerDetails { get; set; }
 
+    public virtual DbSet<FuelStationStock> FuelStationStocks { get; set; }
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         if (!optionsBuilder.IsConfigured)
@@ -33,7 +35,6 @@ public partial class FuelingDbContext : DbContext
         }
     }
        
-
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<FuelReq>(entity =>
@@ -98,7 +99,6 @@ public partial class FuelingDbContext : DbContext
                 .IsUnicode(false)
                 .HasColumnName("PROVITION");
         });
-
         modelBuilder.Entity<VehicalType>(entity =>
         {
             entity.ToTable("VEHICAL_TYPE");
@@ -152,6 +152,24 @@ public partial class FuelingDbContext : DbContext
                 .HasMaxLength(100)
                 .IsUnicode(false)
                 .HasColumnName("VEHICAL_REG_NUMBER");
+            entity.Property(e => e.QrCode)
+                .HasMaxLength(10)
+                .HasColumnName("QR_CODE");
+            entity.Property(e => e.UseQuantity).HasColumnName("USE_QUANTITY");
+            entity.Property(e => e.WeeklyQuantity).HasColumnName("WEEKLY_QUANTITY");
+        });
+
+        modelBuilder.Entity<FuelStationStock>(entity =>
+        {
+            entity.HasKey(e => e.FSSId);
+
+            entity.ToTable("FUEL_STATION_STOCK");
+
+            entity.Property(e => e.FSSId).HasColumnName("F_S_S_ID");
+            entity.Property(e => e.AvailableStock).HasColumnName("AVAILABLE_STOCK");
+            entity.Property(e => e.FSId).HasColumnName("F_S_ID");
+            entity.Property(e => e.FTId).HasColumnName("F_T_ID");
+            entity.Property(e => e.MainStock).HasColumnName("MAIN_STOCK");
         });
 
         OnModelCreatingPartial(modelBuilder);

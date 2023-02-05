@@ -9,7 +9,13 @@ namespace Fuelling_Tracking_WEB_API.BLL
 {
     public class VehicalTypeBLL
     {
-      
+        internal static FuelStockList chackStock(int fuelStationId, int fuelId)
+        {
+            FuelStockList stock = new FuelStockList();
+            stock.Stocks = CustomerDAL.chackStock(fuelStationId, fuelId);
+            return stock;
+
+        }
 
         internal static VehicalTypeListDAO GetVehicalTypeAndId()
         {

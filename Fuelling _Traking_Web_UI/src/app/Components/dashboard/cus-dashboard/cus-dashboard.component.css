@@ -1,0 +1,32 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@500&family=Roboto+Mono:wght@500&display=swap');
+.grid-container {
+  margin: 20px;
+}
+
+.dashboard-card {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  right: 15px;
+  bottom: 15px;
+}
+
+.more-button {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+}
+
+.dashboard-card-content {
+  text-align: center;
+}
+
+.test{
+  width:"200";
+  height:"400"
+}
+h3{
+  font-family: 'Roboto Mono', monospace;
+}
+

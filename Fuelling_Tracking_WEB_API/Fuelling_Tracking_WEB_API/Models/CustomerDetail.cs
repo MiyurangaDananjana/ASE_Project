@@ -26,4 +26,10 @@ public partial class CustomerDetail
     public int? States { get; set; }
 
     public DateTime? ActiveDate { get; set; }
+
+    public string QrCode { get; set; }
+
+    public int? WeeklyQuantity { get; set; }
+
+    public int? UseQuantity { get; set; }
 }

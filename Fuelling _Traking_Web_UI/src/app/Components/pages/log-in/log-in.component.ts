@@ -20,8 +20,6 @@ export class LogInComponent implements OnInit {
 
     this.OtpForm = new FormGroup({
       PhoneNumber : new FormControl('+94',[Validators.required,Validators.minLength(12),Validators.maxLength(12)])
-      
-    
     })
 
   }
@@ -40,7 +38,7 @@ export class LogInComponent implements OnInit {
         this.IsAccountCreated = true;
       }
       else{
-        this.toast.error({detail:"ERROR",summary:'Please check the phone number!',sticky:true});
+        this.toast.error({detail:"ERROR",summary:'Please check the OTP code!',sticky:true});
         this.IsAccountCreated = false;
         console.log(res)
       }
