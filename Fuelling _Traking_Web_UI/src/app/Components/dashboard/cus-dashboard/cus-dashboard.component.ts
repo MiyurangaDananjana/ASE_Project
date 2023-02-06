@@ -47,8 +47,6 @@ export class CusDashboardComponent implements OnInit {
     });
     this.qrGodeGetAndSet();
   };
-
-
   qrGodeGetAndSet(){
     this.loginAuth.getQrCode(this.userPhoneNumber as unknown as user).subscribe((res: any) => {
       this._QRCode = res;

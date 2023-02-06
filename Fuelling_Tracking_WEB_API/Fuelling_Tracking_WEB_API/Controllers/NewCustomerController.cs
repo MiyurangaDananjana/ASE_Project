@@ -64,9 +64,7 @@ namespace Fuelling_Tracking_WEB_API.Controllers
 
             if (chechRegNumber != null)
             {
-
                 return Ok("415");
-
             }
             else
             {
@@ -82,7 +80,6 @@ namespace Fuelling_Tracking_WEB_API.Controllers
                 dto.QrCode = result;
                 VehicalTypeBLL.Save_Customer(dto);
                 return Ok("201");
-
             }
 
         }
@@ -113,7 +110,7 @@ namespace Fuelling_Tracking_WEB_API.Controllers
                 VehicalTypeBLL otpSend = new VehicalTypeBLL();
                 int _rendomOtpCode = GenerateRandomNo();
                 string cusMassage = $"Fuel Pass: Ontime validation (OTP) {_rendomOtpCode} Expire in 5 minutes"; // Message Template 
-                //otpSend.messageSend(chackPhoneNumber.PhoneNumber, cusMassage); 
+               // otpSend.messageSend(chackPhoneNumber.PhoneNumber, cusMassage); 
 
 
 
@@ -133,7 +130,7 @@ namespace Fuelling_Tracking_WEB_API.Controllers
         }
 
         [HttpPost]
-        [Route("Otp-chack")]
+        [Route("Otp-chack")] //customer login
         public IActionResult chackTheOtpCode(CustomerDetail customerDetail)
         {
             if (customerDetail == null)

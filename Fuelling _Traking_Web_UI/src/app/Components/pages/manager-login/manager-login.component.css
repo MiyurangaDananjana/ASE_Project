@@ -1,0 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@500&family=Roboto+Mono:wght@500&display=swap');
+
+h5 {
+    font-family: 'Roboto Mono', monospace;
+}
+label{
+    font-family: 'Roboto Mono', monospace;
+}
+button{
+    font-family: 'Roboto Mono', monospace;
+}

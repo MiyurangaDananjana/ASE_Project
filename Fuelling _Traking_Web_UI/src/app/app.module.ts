@@ -26,6 +26,14 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
 import { QRCodeModule } from 'angularx-qrcode';
+import { ManagerLoginComponent } from './Components/pages/manager-login/manager-login.component';
+import { AdminLoginComponent } from './Components/pages/admin-login/admin-login.component';
+import { ManagerDashboardComponent } from './Components/dashboard/manager/manager-dashboard/manager-dashboard.component';
+import { ManagerFooterComponent } from './Components/dashboard/manager/manager-footer/manager-footer.component';
+import { ManagerHeaderComponent } from './Components/dashboard/manager/manager-header/manager-header.component';
+import { ManagerSidebarComponent } from './Components/dashboard/manager/manager-sidebar/manager-sidebar.component';
+import { ManagerComponentsComponent } from './Components/dashboard/manager/manager-components/manager-components.component';
+
 
 
 @NgModule({
@@ -36,7 +44,14 @@ import { QRCodeModule } from 'angularx-qrcode';
     HomePageComponent,
     OtpLoginPageComponent,
     CusNavigationComponent,
-    CusDashboardComponent
+    CusDashboardComponent,
+    ManagerLoginComponent,
+    AdminLoginComponent,
+    ManagerDashboardComponent,
+    ManagerFooterComponent,
+    ManagerHeaderComponent,
+    ManagerSidebarComponent,
+    ManagerComponentsComponent
 
 
 
