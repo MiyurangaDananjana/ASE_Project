@@ -9,21 +9,27 @@ import { ManagerLoginComponent } from './Components/pages/manager-login/manager-
 import { AdminLoginComponent } from './Components/pages/admin-login/admin-login.component';
 import { ManagerDashboardComponent } from './Components/dashboard/manager/manager-dashboard/manager-dashboard.component';
 import { ManagerComponentsComponent } from './Components/dashboard/manager/manager-components/manager-components.component';
+import { AuthGuard } from './Service/auth.guard';
+import { NotFundComponent } from './Components/not-fund/not-fund.component';
+import { CusActiveListComponent } from './Components/dashboard/manager/cus-active-list/cus-active-list.component';
 
-
+//CusActiveListComponent
 
 
 const routes: Routes = [
 
   {path:'', component:HomePageComponent},
+  {path:'home', component:HomePageComponent},
   {path:'Sing-up', component:SignUpComponent},
   {path:'log-in', component:LogInComponent},
   {path:'otp-login', component:OtpLoginPageComponent},
   {path:'cus-dashboard', component:CusNavigationComponent},
   {path:'manager-login',component:ManagerLoginComponent},
   {path:'admin-login',component:AdminLoginComponent},
-  {path:'manager-dashboard',component:ManagerDashboardComponent},
-  {path:'cus-req',component:ManagerComponentsComponent}
+  {path:'manager-dashboard',component:ManagerDashboardComponent, canActivate:[AuthGuard]},
+  {path:'cus-req',component:ManagerComponentsComponent,canActivate:[AuthGuard]},
+  {path:'cus-active-list',component:CusActiveListComponent}
+  // {path:'**',component:NotFundComponent}
 
 
 ];

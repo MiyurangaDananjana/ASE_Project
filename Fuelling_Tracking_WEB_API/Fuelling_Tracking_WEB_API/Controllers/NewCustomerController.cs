@@ -75,7 +75,7 @@ namespace Fuelling_Tracking_WEB_API.Controllers
                 dto.VehicalChassisNumber = customerDetail.VehicalChassisNumber;
                 dto.FuelId = customerDetail.FuelId;
                 dto.FuelStation = customerDetail.FuelStation;
-                dto.States = Convert.ToInt32(0); // Account is non activated states
+                dto.States = Convert.ToInt32(1); // Account is non activated states
                 dto.ActiveDate = DateTime.Now;
                 dto.QrCode = result;
                 VehicalTypeBLL.Save_Customer(dto);
@@ -100,7 +100,7 @@ namespace Fuelling_Tracking_WEB_API.Controllers
         {
             FuelingDbContext db = new FuelingDbContext();
 
-            int customerStatus = (int)CustomerStates.ManagerApproved;
+            int customerStatus = 2;
 
 
             var chackPhoneNumber = db.CustomerDetails.Where(x => x.PhoneNumber == customerDetail.PhoneNumber && x.States == customerStatus).FirstOrDefault();
@@ -110,7 +110,7 @@ namespace Fuelling_Tracking_WEB_API.Controllers
                 VehicalTypeBLL otpSend = new VehicalTypeBLL();
                 int _rendomOtpCode = GenerateRandomNo();
                 string cusMassage = $"Fuel Pass: Ontime validation (OTP) {_rendomOtpCode} Expire in 5 minutes"; // Message Template 
-               // otpSend.messageSend(chackPhoneNumber.PhoneNumber, cusMassage); 
+               //otpSend.messageSend(chackPhoneNumber.PhoneNumber, cusMassage); 
 
 
 

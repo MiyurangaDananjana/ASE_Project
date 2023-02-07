@@ -33,3 +33,5 @@ public partial class CustomerDetail
 
     public int? UseQuantity { get; set; }
 }
+
+

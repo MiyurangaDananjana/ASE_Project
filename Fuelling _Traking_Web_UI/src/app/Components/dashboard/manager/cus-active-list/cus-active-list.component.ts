@@ -1,28 +1,29 @@
+
 import { Component, ElementRef, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/Service/auth.service';
 import { ActiveNonActiveList, Cus_Active_Non_ActiveList } from 'src/app/Service/user';
 import { NgToastService } from 'ng-angular-popup';
 
+
 @Component({
-  selector: 'app-manager-components',
-  templateUrl: './manager-components.component.html',
-  styleUrls: ['./manager-components.component.css']
+  selector: 'app-cus-active-list',
+  templateUrl: './cus-active-list.component.html',
+  styleUrls: ['./cus-active-list.component.css']
 })
-export class ManagerComponentsComponent implements OnInit {
-
+export class CusActiveListComponent implements OnInit {
   constructor(private loginAuth: AuthService, private toast: NgToastService) { }
-
   _fuelStationCode: any;
   nonActiveListObj: { FuelStationRegCode?: any, Statest?: any } = {}
   _Deactivate: { Id?: any, States?: any } = {}
   deleteCustomer: {}
 
   dataSource: Array<any> = [];
-
-
   ngOnInit(): void {
     this.loadDataSourese();
   }
+
+
+
 
 
   test(Id: any) {
@@ -45,7 +46,7 @@ export class ManagerComponentsComponent implements OnInit {
 
   Deactivate(Id: any) {
     this._Deactivate.Id = Id;
-    this._Deactivate.States = 2;
+    this._Deactivate.States = 1;
 
     this.loginAuth.deactive(this._Deactivate as unknown as Cus_Active_Non_ActiveList).subscribe((res: any) => {
       if (res == 'Success') {
@@ -71,7 +72,7 @@ export class ManagerComponentsComponent implements OnInit {
       this._fuelStationCode = data;
     });
 
-    this.nonActiveListObj.Statest = 1;
+    this.nonActiveListObj.Statest = 2;
     this.nonActiveListObj.FuelStationRegCode = this._fuelStationCode.FuelStationRegCode
 
     this.loginAuth.getNonActiveList(this.nonActiveListObj as unknown as ActiveNonActiveList).subscribe((res: any) => {
@@ -79,6 +80,4 @@ export class ManagerComponentsComponent implements OnInit {
     });
 
   }
-
-
 }

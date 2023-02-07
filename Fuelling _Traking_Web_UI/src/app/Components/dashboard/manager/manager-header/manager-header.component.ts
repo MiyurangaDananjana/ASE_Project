@@ -1,5 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { DOCUMENT } from '@angular/common'
+import { AuthService } from 'src/app/Service/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-manager-header',
@@ -8,13 +10,16 @@ import { DOCUMENT } from '@angular/common'
 })
 export class ManagerHeaderComponent {
 
-  constructor(@Inject(DOCUMENT) private document: Document) { }
+  constructor(@Inject(DOCUMENT) private document: Document, private authService: AuthService, private router:Router) { }
 
   ngOnInit(): void {
   }
-  
-  sidebarToggle()
-  {
+
+  logout() {
+    this.authService.removeToken();
+    this.router.navigateByUrl('/home');
+  }
+  sidebarToggle() {
     //toggle sidebar function
     this.document.body.classList.toggle('toggle-sidebar');
   }

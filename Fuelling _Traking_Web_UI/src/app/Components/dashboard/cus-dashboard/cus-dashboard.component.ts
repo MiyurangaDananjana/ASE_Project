@@ -16,7 +16,7 @@ import { SafeUrl } from '@angular/platform-browser';
 })
 export class CusDashboardComponent implements OnInit {
   constructor(private breakpointObserver: BreakpointObserver, private route: ActivatedRoute, private loginAuth: AuthService) {
-   
+
   }
   /** Based on the screen size, switch from standard to one column per row */
   _PhoneNumber: any;
@@ -24,13 +24,20 @@ export class CusDashboardComponent implements OnInit {
   _labeldata: any = [];
   _finisheddata: any = [];
   myAngularQRcode: any;
-  _QRCode:any;
+  _QRCode: any;
+
+
   userPhoneNumber: { PhoneNumber?: any; } = {};
+
+
   ngOnInit(): void {
     this.route.queryParams.subscribe((parms: any) => {
       this._PhoneNumber = parms.data;
     });
+
     this.userPhoneNumber.PhoneNumber = String(this._PhoneNumber) //convert to int value string and pass servic 
+
+
     this.loginAuth.getStock(this.userPhoneNumber as unknown as user).subscribe((res: any) => {
       this._chartData = res;
       //set the responce data to array
@@ -47,12 +54,17 @@ export class CusDashboardComponent implements OnInit {
     });
     this.qrGodeGetAndSet();
   };
-  qrGodeGetAndSet(){
+
+
+  
+  qrGodeGetAndSet() {
     this.loginAuth.getQrCode(this.userPhoneNumber as unknown as user).subscribe((res: any) => {
       this._QRCode = res;
       this.myAngularQRcode = this._QRCode;
     });
   }
+
+
   // this is the pie chart fuel station fuel stock presant
   RenderChart(labeldata: any, maindata: any, type: any, id: any) {
     const myChart = new Chart(id, {
@@ -79,6 +91,9 @@ export class CusDashboardComponent implements OnInit {
     });
 
   };
+
+
+  
   // qr code genarator
   url: SafeUrl = ''
   onCodeChange(url: SafeUrl) {

@@ -27,6 +27,8 @@ public partial class FuelingDbContext : DbContext
 
     public virtual DbSet<FuelStationStock> FuelStationStocks { get; set; }
 
+    public virtual DbSet<Statest> Statests { get; set; }
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         if (!optionsBuilder.IsConfigured)
@@ -170,6 +172,17 @@ public partial class FuelingDbContext : DbContext
             entity.Property(e => e.FSId).HasColumnName("F_S_ID");
             entity.Property(e => e.FTId).HasColumnName("F_T_ID");
             entity.Property(e => e.MainStock).HasColumnName("MAIN_STOCK");
+        });
+
+        modelBuilder.Entity<Statest>(entity =>
+        {
+            entity.ToTable("STATEST");
+
+            entity.Property(e => e.Id).HasColumnName("id");
+
+            entity.Property(e => e.Name)
+                .HasMaxLength(50)
+                .IsUnicode(false);
         });
 
         OnModelCreatingPartial(modelBuilder);

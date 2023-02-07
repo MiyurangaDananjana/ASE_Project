@@ -33,6 +33,8 @@ import { ManagerFooterComponent } from './Components/dashboard/manager/manager-f
 import { ManagerHeaderComponent } from './Components/dashboard/manager/manager-header/manager-header.component';
 import { ManagerSidebarComponent } from './Components/dashboard/manager/manager-sidebar/manager-sidebar.component';
 import { ManagerComponentsComponent } from './Components/dashboard/manager/manager-components/manager-components.component';
+import { NotFundComponent } from './Components/not-fund/not-fund.component';
+import { CusActiveListComponent } from './Components/dashboard/manager/cus-active-list/cus-active-list.component';
 
 
 
@@ -51,7 +53,9 @@ import { ManagerComponentsComponent } from './Components/dashboard/manager/manag
     ManagerFooterComponent,
     ManagerHeaderComponent,
     ManagerSidebarComponent,
-    ManagerComponentsComponent
+    ManagerComponentsComponent,
+    NotFundComponent,
+    CusActiveListComponent
 
 
 

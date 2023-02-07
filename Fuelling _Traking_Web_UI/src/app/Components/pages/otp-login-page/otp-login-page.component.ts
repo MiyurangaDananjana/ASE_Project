@@ -14,21 +14,18 @@ export class OtpLoginPageComponent implements OnInit {
   constructor(private route:ActivatedRoute, private loginAuth: AuthService, private router: Router,private toast: NgToastService) { }
   LoginForm:FormGroup;
   phoneNumber:any;
-  ngOnInit(): void {
 
-    
+  
+  ngOnInit(): void {
     this.route.queryParams.subscribe((parms:any)=>{
       this.phoneNumber = parms.data; 
-      console.log(this.phoneNumber);
+      
     })
-
     this.LoginForm = new FormGroup({
       PhoneNumber : new FormControl(this.phoneNumber,[Validators.required,Validators.minLength(12),Validators.maxLength(12)]),
       OtpCode : new FormControl('',[Validators.required,Validators.minLength(4),Validators.maxLength(4)])
  
     })
-    
-
   }
 
   Submint(){

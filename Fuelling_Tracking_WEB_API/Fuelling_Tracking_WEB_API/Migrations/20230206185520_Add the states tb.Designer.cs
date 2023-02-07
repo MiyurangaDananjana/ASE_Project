@@ -4,6 +4,7 @@ using Fuelling_Tracking_WEB_API.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FuellingTrackingWEBAPI.Migrations
 {
     [DbContext(typeof(FuelingDbContext))]
-    partial class FuelingDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230206185520_Add the states tb")]
+    partial class Addthestatestb
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

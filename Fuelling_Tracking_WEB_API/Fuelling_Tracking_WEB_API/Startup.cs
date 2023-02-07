@@ -1,5 +1,6 @@
 
 
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -46,24 +47,22 @@ namespace Fuelling_Tracking_WEB_API
             });
 
 
-            services.AddAuthentication("JWTAuth")
-                 .AddJwtBearer("JWTAuth", options =>
-                 {
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(x =>
+            {
+                x.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuer = true,
+                    ValidateAudience = true,
+                    ValidateLifetime = true,
+                    ValidateIssuerSigningKey = true,
+                    ValidIssuer = "localhost",
+                    ValidAudience = "localhost",
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["jwtConfig:Key"])),
+                    ClockSkew = TimeSpan.Zero
+                };
+            });
 
-                     var keyBytes = Encoding.UTF8.GetBytes(Constants.Secret);
 
-                     var key = new SymmetricSecurityKey(keyBytes);
-
-                     options.TokenValidationParameters = new TokenValidationParameters()
-                     {
-                         ValidIssuer = Constants.Issuer,
-                         ValidAudience = Constants.Audience,
-                         IssuerSigningKey = key,
-
-                     };
-
-
-                 });
 
             services.AddControllers();
             services.AddSwaggerGen(c =>

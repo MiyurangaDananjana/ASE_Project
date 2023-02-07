@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using Fuelling_Tracking_WEB_API.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using System;
@@ -9,6 +11,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
+using Twilio.TwiML.Voice;
 
 namespace Fuelling_Tracking_WEB_API.Controllers
 {
@@ -22,37 +25,41 @@ namespace Fuelling_Tracking_WEB_API.Controllers
         };
 
         private readonly ILogger<WeatherForecastController> _logger;
+        private readonly IConfiguration _config; // Import the _configaration JWT
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
+        public WeatherForecastController(ILogger<WeatherForecastController> logger, IConfiguration config)
         {
             _logger = logger;
+            _config = config;
         }
 
 
-        [HttpGet("authenticate")]
-        public IActionResult Authentication()
+        [HttpPost("authenticate")]
+        public IActionResult Authentication(FuleStation fuleStation)
         {
-            var claims = new[]
+
+            if (fuleStation == null)
             {
-                new Claim("FullName", "Last Name"),
-                new Claim(JwtRegisteredClaimNames.Sub, "user_id")
-            };
+                return Ok("NotFound");
+            }
+            {
+                FuelingDbContext db = new FuelingDbContext();
 
-            var keyBytes = Encoding.UTF8.GetBytes(Constants.Secret);
+                var ChackFuelStationLogin = db.FuleStations.Where(x => x.FuelStationRegCode == fuleStation.FuelStationRegCode && x.Password == fuleStation.Password).FirstOrDefault();
+                if (ChackFuelStationLogin != null)
+                {
+                    return Ok(new JWTService(_config).GenerateToken(
+                                 ChackFuelStationLogin.Address
 
-            var key = new SymmetricSecurityKey(keyBytes);
+                               ));
+                }
+                else
+                {
+                    return Ok("NotFound");
+                }
+            }
 
-            var signingCredentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
-
-            var token = new JwtSecurityToken(
-                Constants.Audience,
-                Constants.Issuer,
-                claims,
-                notBefore: DateTime.Now,
-                expires: DateTime.Now.AddHours(1), signingCredentials);
-
-            var tokenString = new JwtSecurityTokenHandler().WriteToken(token);
-            return Ok(new { accessToken = tokenString });
+           
         }
         
 
