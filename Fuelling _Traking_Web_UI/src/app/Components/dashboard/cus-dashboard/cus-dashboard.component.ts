@@ -44,14 +44,15 @@ export class CusDashboardComponent implements OnInit {
       if (this._chartData != null) {
         for (let i = 0; i < this._chartData.length; i++) {
           // console.log(this._chartData[i]);
-          this._labeldata.push(Object.keys(this._chartData[i])[0]);
           this._labeldata.push(Object.keys(this._chartData[i])[1]);
-          this._finisheddata.push(Object.values(this._chartData[i])[0]);
+          this._labeldata.push(Object.keys(this._chartData[i])[2]);
           this._finisheddata.push(Object.values(this._chartData[i])[1]);
+          this._finisheddata.push(Object.values(this._chartData[i])[2]);
         }
         this.RenderChart(this._labeldata, this._finisheddata, 'pie', 'piechart');
       };
     });
+    
     this.qrGodeGetAndSet();
   };
 

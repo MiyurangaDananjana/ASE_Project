@@ -58,7 +58,7 @@ namespace Fuelling_Tracking_WEB_API.Controllers
         {
             const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
             var result = GenerateRandomQRCode(10, chars);
-           
+
             FuelingDbContext db = new FuelingDbContext();
             var chechRegNumber = db.CustomerDetails.Where(x => x.VehicalRegNumber == customerDetail.VehicalRegNumber && x.PhoneNumber == customerDetail.PhoneNumber).FirstOrDefault();
 
@@ -110,10 +110,7 @@ namespace Fuelling_Tracking_WEB_API.Controllers
                 VehicalTypeBLL otpSend = new VehicalTypeBLL();
                 int _rendomOtpCode = GenerateRandomNo();
                 string cusMassage = $"Fuel Pass: Ontime validation (OTP) {_rendomOtpCode} Expire in 5 minutes"; // Message Template 
-               //otpSend.messageSend(chackPhoneNumber.PhoneNumber, cusMassage); 
-
-
-
+            //    otpSend.messageSend(chackPhoneNumber.PhoneNumber, cusMassage);
                 //Update Otp send date and time
                 CustomerDetail cussetail = new CustomerDetail();
                 cussetail.PhoneNumber = customerDetail.PhoneNumber;
@@ -157,7 +154,7 @@ namespace Fuelling_Tracking_WEB_API.Controllers
         [Route("cus-stock-chack")]
         public IActionResult chack_Stock(CustomerDetail customerDetail)
         {
-            
+
             if (customerDetail == null)
             {
                 return NoContent();
@@ -165,9 +162,9 @@ namespace Fuelling_Tracking_WEB_API.Controllers
             else
             {
                 FuelingDbContext db = new FuelingDbContext();
-                var checkFuelStationAndFuelType = db.CustomerDetails.Where(x=>x.PhoneNumber == customerDetail.PhoneNumber).FirstOrDefault();
+                var checkFuelStationAndFuelType = db.CustomerDetails.Where(x => x.PhoneNumber == customerDetail.PhoneNumber).FirstOrDefault();
 
-                if(checkFuelStationAndFuelType != null)
+                if (checkFuelStationAndFuelType != null)
                 {
                     int fuelStationId = checkFuelStationAndFuelType.FuelStation;
                     int fuelId = checkFuelStationAndFuelType.FuelId;
@@ -202,7 +199,7 @@ namespace Fuelling_Tracking_WEB_API.Controllers
             else
             {
                 FuelingDbContext db = new FuelingDbContext();
-                var getTheQrcode = db.CustomerDetails.Where(x => x.PhoneNumber == customerDetail.PhoneNumber && x.States == Convert.ToInt32(1)).FirstOrDefault();
+                var getTheQrcode = db.CustomerDetails.Where(x => x.PhoneNumber == customerDetail.PhoneNumber && x.States == Convert.ToInt32(2)).FirstOrDefault();
 
                 if (getTheQrcode != null)
                 {

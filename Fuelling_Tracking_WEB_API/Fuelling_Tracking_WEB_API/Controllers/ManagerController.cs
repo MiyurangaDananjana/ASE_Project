@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Fuelling_Tracking_WEB_API.Controllers
@@ -72,12 +73,9 @@ namespace Fuelling_Tracking_WEB_API.Controllers
 
                     if (CustomerChek != null)
                     {
-
                         Cus_List dto = new Cus_List();
                         dto = ManagerBLL.GetNonActiveCustomers(CustomerChek.FuelStation, CustomerChek.States);
                         return Ok(dto.CustomerDetailList);
-
-
                     }
                     else
                     {
@@ -120,9 +118,7 @@ namespace Fuelling_Tracking_WEB_API.Controllers
                 return Ok("Success");
 
             }
-               
-
-           
+                        
         }
 
         [HttpPut]
@@ -158,6 +154,52 @@ namespace Fuelling_Tracking_WEB_API.Controllers
 
 
         }
+
+        //List<int> _PetrolStock { get; set; } = new List<int>();
+        //List<int> _DiesalStock { get; set; } = new List<int>();
+
+        [HttpPost]
+        [Route("manager-fuel-stock")]
+        public IActionResult GetPetolStockFuelStation(ManagerFuelStockChack managerFuelStockChack)
+        {
+
+            if (managerFuelStockChack == null)
+            {
+                return BadRequest("NotFound");
+            }
+            else
+            {
+                using(FuelingDbContext db = new FuelingDbContext())
+                {
+                    var FuelStationCode = db.FuleStations.Where(x => x.FuelStationRegCode == managerFuelStockChack.FuelStationCode).FirstOrDefault();
+
+                    if (FuelStationCode != null)
+                    {
+                        ManagerFuelModelList dto = new ManagerFuelModelList();
+                        dto = ManagerBLL.GetFuelStationStock(FuelStationCode.FuelStationId, managerFuelStockChack.FuelType);
+                        return Ok(dto.managerFuelModels);
+                    }
+                    else
+                    {
+                        return NotFound();
+                    }
+                    
+                   
+                   
+                }
+            }
+
+
+
+            //_PetrolStock.AddRange(new int[] {});
+            //_DiesalStock.AddRange(new int[] {});
+
+
+
+
+
+           
+    }
 
 
     }

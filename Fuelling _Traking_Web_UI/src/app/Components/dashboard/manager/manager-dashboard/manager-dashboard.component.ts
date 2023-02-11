@@ -29,13 +29,10 @@ export class ManagerDashboardComponent implements OnInit {
     this.loginAuth.currentUser.subscribe((data) => {
       this._fuelStationCode = data;
     })
-
-  
- 
-
   }
 
-  // this is the pie chart fuel station fuel stock presant
+  
+  // this is the pie chart fuel station fuel stock presant petrol
   RenderChart() {
     const myChart = new Chart("piechart1", {
       type: "pie",
@@ -62,6 +59,8 @@ export class ManagerDashboardComponent implements OnInit {
 
   };
 
+  
+  // this is the pie chart fuel station fuel stock presant diesal
   dieselpiceCahrt() {
     const myChart = new Chart("piechart2", {
       type: "pie",

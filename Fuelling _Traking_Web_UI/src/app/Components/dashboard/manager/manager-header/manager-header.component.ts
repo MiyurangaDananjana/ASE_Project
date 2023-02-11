@@ -17,7 +17,7 @@ export class ManagerHeaderComponent {
 
   logout() {
     this.authService.removeToken();
-    this.router.navigateByUrl('/home');
+    this.router.navigateByUrl('');
   }
   sidebarToggle() {
     //toggle sidebar function

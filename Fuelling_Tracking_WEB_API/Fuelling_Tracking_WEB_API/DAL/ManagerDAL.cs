@@ -8,6 +8,35 @@ namespace Fuelling_Tracking_WEB_API.DAL
 {
     public class ManagerDAL
     {
+        internal static List<ManagerFuelModel> GetFuelStationStock(int fuelStationId, int fuelType)
+        {
+            using (FuelingDbContext db = new FuelingDbContext())
+            {
+                List<ManagerFuelModel> managerFuelModels = new List<ManagerFuelModel>();
+                var list = (from fuel in db.FuelStationStocks
+                            where fuel.FSId == fuelStationId && fuel.FTId == fuelType
+                            join fuelName in db.FuelTypes on fuel.FTId equals fuelName.Fueid
+                            select new
+                            {
+                                _fuelName = fuelName.FuelType1,
+                                _MainStock = fuel.MainStock,
+                                _Available = fuel.AvailableStock
+                            });
+                foreach (var item in list)
+                {
+                    ManagerFuelModel fuelModel = new ManagerFuelModel();
+                    fuelModel._FuelName = item._fuelName;
+
+
+                    managerFuelModels.Add(fuelModel);
+
+                }
+                return managerFuelModels;
+
+
+            }
+        }
+
         internal static List<CustomerDetailActiveNonActiveList> GetNonActiveList(int fuelStation, int? states)
         {
             FuelingDbContext db = new FuelingDbContext();

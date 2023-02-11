@@ -1,8 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Fuelling_Tracking_WEB_API"
+    "\\Fuelling_Tracking_WEB_API",
+    "\\Fuelling_Tracking_WEB_API\\Controllers"
   ],
-  "SelectedNode": "\\Fuelling_Tracking_WEB_API\\appsettings.json",
+  "SelectedNode": "\\Fuelling_Tracking_WEB_API\\Controllers\\NewCustomerController.cs",
   "PreviewInSolutionExplorer": false
 }
