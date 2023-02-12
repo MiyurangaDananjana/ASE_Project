@@ -36,10 +36,10 @@ export class OtpLoginPageComponent implements OnInit {
       if(res == "OtpTure"){
         
         this.router.navigate(['/cus-dashboard'],{queryParams:{data:this.phoneNumber}})
-        this.toast.success({detail:"SUCCESS",summary:'Successfully Otp send!',duration:5000});
+        this.toast.success({detail:"SUCCESS",summary:'Logging successful',duration:5000});
       }
       else{
-        this.toast.error({detail:"ERROR",summary:'Please check the phone number!',sticky:true});
+        this.toast.error({detail:"ERROR",summary:'Please enter a valid OTP code',sticky:true});
       }
     })
   }

@@ -37,7 +37,7 @@ export class ManagerDashboardComponent implements OnInit {
     const myChart = new Chart("piechart1", {
       type: "pie",
       data: {
-        labels: ["Tets","Test"],
+        labels: ["",""],
         datasets: [{
           label: '# of Stock',
           data: [12,32],
@@ -65,10 +65,10 @@ export class ManagerDashboardComponent implements OnInit {
     const myChart = new Chart("piechart2", {
       type: "pie",
       data: {
-        labels: ["Tets","Test"],
+        labels: ["",""],
         datasets: [{
           label: '# of Stock',
-          data: [12,32],
+          data: [20,100],
           backgroundColor: ['Blue', 'white'],
           borderColor: [
             'rgba(255, 99, 132, 1)'
