@@ -37,7 +37,7 @@ export class CusActiveListComponent implements OnInit {
         },
         err => {
           this.loadDataSourese();
-          this.toast.success({ detail: "SUCCESS", summary: 'Successfully Otp send!', duration: 5000 });
+          this.toast.success({ detail: "SUCCESS", summary: 'Customer Details Delete', duration: 5000 });
 
         }
       )
@@ -51,7 +51,7 @@ export class CusActiveListComponent implements OnInit {
     this.loginAuth.deactive(this._Deactivate as unknown as Cus_Active_Non_ActiveList).subscribe((res: any) => {
       if (res == 'Success') {
         this.loadDataSourese();
-        this.toast.success({ detail: "SUCCESS", summary: 'Successfully Deactive Customer!', duration: 5000 });
+        this.toast.success({ detail: "SUCCESS", summary: 'Successfully dective Customer!', duration: 5000 });
         this.ngOnInit();
       }
       else {

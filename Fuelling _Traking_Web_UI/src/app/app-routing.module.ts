@@ -12,6 +12,7 @@ import { ManagerComponentsComponent } from './Components/dashboard/manager/manag
 import { AuthGuard } from './Service/auth.guard';
 import { NotFundComponent } from './Components/not-fund/not-fund.component';
 import { CusActiveListComponent } from './Components/dashboard/manager/cus-active-list/cus-active-list.component';
+import { ManagerFuelReqComponent } from './Components/dashboard/manager/manager-fuel-req/manager-fuel-req.component';
 
 //CusActiveListComponent
 
@@ -28,7 +29,8 @@ const routes: Routes = [
   {path:'admin-login',component:AdminLoginComponent},
   {path:'manager-dashboard',component:ManagerDashboardComponent, canActivate:[AuthGuard]},
   {path:'cus-req',component:ManagerComponentsComponent,canActivate:[AuthGuard]},
-  {path:'cus-active-list',component:CusActiveListComponent}
+  {path:'cus-active-list',component:CusActiveListComponent},
+  {path:'manager-fuel-req',component:ManagerFuelReqComponent}
   // {path:'**',component:NotFundComponent}
 
 

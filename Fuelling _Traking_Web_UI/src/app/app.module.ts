@@ -35,7 +35,11 @@ import { ManagerSidebarComponent } from './Components/dashboard/manager/manager-
 import { ManagerComponentsComponent } from './Components/dashboard/manager/manager-components/manager-components.component';
 import { NotFundComponent } from './Components/not-fund/not-fund.component';
 import { CusActiveListComponent } from './Components/dashboard/manager/cus-active-list/cus-active-list.component';
-
+import { ManagerFuelReqComponent } from './Components/dashboard/manager/manager-fuel-req/manager-fuel-req.component';
+import { AdminFooterComponent } from './Components/dashboard/admin/admin-footer/admin-footer.component';
+import { AdminHeaderComponent } from './Components/dashboard/admin/admin-header/admin-header.component';
+import { AdminSidebarComponent } from './Components/dashboard/admin/admin-sidebar/admin-sidebar.component';
+import { AdminDashboardComponent } from './Components/dashboard/admin/admin-dashboard/admin-dashboard.component';
 
 
 @NgModule({
@@ -55,7 +59,12 @@ import { CusActiveListComponent } from './Components/dashboard/manager/cus-activ
     ManagerSidebarComponent,
     ManagerComponentsComponent,
     NotFundComponent,
-    CusActiveListComponent
+    CusActiveListComponent,
+    ManagerFuelReqComponent,
+    AdminFooterComponent,
+    AdminHeaderComponent,
+    AdminSidebarComponent,
+    AdminDashboardComponent
 
 
 
